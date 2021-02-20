@@ -56,23 +56,18 @@ color5='FFFFFF', -- days
 
 
 conky.text = [[
+
 \
-\
-\
-\
-${font Poiret One:weight=Light:size=96}${color0}\
+${font Poiret One:weight=Light:size=85}${color0}\
 ${alignc}${time %H:%M}\
 ${font}${color}
 \
-\
-\
-\
 ${font Poiret One:weight=Light:size=28}${color1}\
 ${voffset 30}\
-${alignc}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %B %d"}\
+${alignc}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%a, %B %d"}\
 ${font}${color}
-\
-\
-\
-\
+${voffset 30}\
+${font DejaVu Sans Mono:size=10} ⚡ \
+${exec upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep perc | grep -oE [0-9]+. } \
+${execbar upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep perc | grep -oE [0-9]+. | sed -r 's/%//g'} \
 ]]
